@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //--This is hidden comment by Mirka. I was here weeeeee!!
+        //test
     }
 
     // Update is called once per frame
