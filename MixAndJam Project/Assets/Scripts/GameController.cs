@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //Mirka was here!!!
+        //And Andreas TOO!
     }
 
     // Update is called once per frame
