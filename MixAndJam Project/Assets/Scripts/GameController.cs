@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     }
 
     // Update is called once per frame
+    //comment added by noor
+
     void Update()
     {
         
