@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Destroy
   - GameOver
+  - Ground
   layers:
   - Default
   - TransparentFX
