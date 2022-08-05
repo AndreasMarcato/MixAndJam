@@ -49,6 +49,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         //-- if you touch the screen, player will jump max 2 times
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && extraJumps > 0)
         {
+            Debug.Log("I was herr");
                 //--Then apply the force to Rigidbody to make player jump
                 rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 //--when you are in the air and jump again you will lose your extra jump
@@ -56,8 +57,9 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         }
         else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && extraJumps == 0 && isGrounded == true)
         {
+            Debug.Log("In the other one?");
             //--if we are on the ground and jump
-            rigidbody.AddForce(Vector3.up * extraJumpForce, ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
