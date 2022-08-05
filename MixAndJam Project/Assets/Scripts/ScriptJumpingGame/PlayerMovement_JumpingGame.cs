@@ -13,6 +13,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
     public new Rigidbody rigidbody;
     //--Force applied to Rigidbody to make player jump
     public float jumpForce = 6;
+    public float extraJumpForce = 6;    //--This one is the force for second jump!
 
     //--Check if player is on the ground
     private bool isGrounded;
@@ -56,7 +57,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && extraJumps == 0 && isGrounded == true)
         {
             //--if we are on the ground and jump
-            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * extraJumpForce, ForceMode.Impulse);
         }
     }
 
