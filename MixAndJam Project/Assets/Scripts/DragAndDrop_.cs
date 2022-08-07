@@ -23,7 +23,7 @@ public class DragAndDrop_ : MonoBehaviour
     void Update()
     {
         foreach (Touch touch in Input.touches)
-        {
+        { 
             if (touch.phase == TouchPhase.Began)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
