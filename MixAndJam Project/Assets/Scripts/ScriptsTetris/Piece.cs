@@ -24,6 +24,26 @@ public class Piece : MonoBehaviour
     private float lockTime;
 
 
+
+
+    // variables for swipe:
+    Vector2 swipeStart;
+    Vector2 swipeEnd;
+    float minimumDistance = 10;
+
+    public static event System.Action<SwipeDirection> OnSwipe = delegate { };
+    public enum SwipeDirection
+    {
+        Up, Down, Left, Right
+    };
+
+
+
+
+
+
+
+
     // spawn position, and the data ew want to use while this piece is active, and a reference to our gameboard:
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
@@ -56,7 +76,7 @@ public class Piece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
 
@@ -70,6 +90,29 @@ public class Piece : MonoBehaviour
         // deltaTime is the time it has passed since the last frame is rendered
         this.lockTime += Time.deltaTime;
 
+
+
+
+        // swipe simulation:
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                swipeStart = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                swipeEnd = touch.position;
+                ProcessSwipe();
+            }
+        }
+
+
+
+
+
+
+
         // rotation in either direction:
         // if you think about the rotation as an array
         // when you call rotate, you are saying shift down/up an index (int)
@@ -81,8 +124,6 @@ public class Piece : MonoBehaviour
         {
             Rotate(1);
         }
-
-
 
 
         // movement direction whenever you press certain letters
@@ -113,10 +154,6 @@ public class Piece : MonoBehaviour
         }
 
 
-        // on swipe:
-
-
-
 
         // reset the piesce when we are done with the movement
         this.board.Set(this);
@@ -130,7 +167,7 @@ public class Piece : MonoBehaviour
         this.stepTime = Time.time + this.stepDelay;
         Move(Vector2Int.down);
 
-        if(this.lockTime >= this.lockDelay)
+        if (this.lockTime >= this.lockDelay)
         {
             Lock();
         }
@@ -189,7 +226,7 @@ public class Piece : MonoBehaviour
 
 
 
-    private void Rotate (int direction)
+    private void Rotate(int direction)
     {
         //storing our current rotation, so if the rotation fails, we can revert back:
         int originalRotation = this.rotationIndex;
@@ -250,7 +287,7 @@ public class Piece : MonoBehaviour
     {
         int wallKickIndex = GetWallKickIndex(rotationIndex, rotationDirection);
 
-        for(int i = 0; i < this.data.wallKicks.GetLength(1); i++)
+        for (int i = 0; i < this.data.wallKicks.GetLength(1); i++)
         {
             // each of these tests is defining a translation/movement:
             Vector2Int translation = this.data.wallKicks[wallKickIndex, i];
@@ -293,6 +330,59 @@ public class Piece : MonoBehaviour
             return min + (input - min) % (max - min);
         }
     }
+
+
+
+
+
+
+    void ProcessSwipe()
+    {
+        float distance = Vector2.Distance(swipeStart, swipeEnd);
+        if (distance > minimumDistance)
+        {
+            if (IsVerticalSwipe())
+            {
+                if (swipeEnd.y > swipeStart.y)
+                {
+                    //OnSwipe(SwipeDirection.Up);
+                    Debug.Log("up");
+                }
+                else
+                {
+                    HardDrop();
+                    Debug.Log("down");
+                }
+            }
+            else // horizontal
+            {
+                if (swipeEnd.x > swipeStart.x)
+                {
+                    Move(Vector2Int.right);
+                    Debug.Log("right");
+                }
+                else
+                {
+                    Move(Vector2Int.left);
+                    Debug.Log("left");
+                }
+            }
+        }
+    }
+
+    bool IsVerticalSwipe()
+    {
+        float virtical = Mathf.Abs(swipeEnd.y - swipeStart.y);
+        float horizontal = Mathf.Abs(swipeEnd.x - swipeStart.x);
+        if (virtical > horizontal)
+            return true;
+        return false;
+    }
+
+
+
+
+
 
 
 
