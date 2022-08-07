@@ -22,6 +22,38 @@ public class DragAndDrop_ : MonoBehaviour
 
     void Update()
     {
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
+                // if our ray hits an object with the puzzle tag...
+                if (hit.transform.CompareTag("Puzzle"))
+                {
+                    if (!hit.transform.GetComponent<piceseScript>().InRightPosition)
+                    {
+                        SelectedPiece = hit.transform.gameObject;
+                        SelectedPiece.GetComponent<piceseScript>().Selected = true;
+                    }
+
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                if (SelectedPiece != null)
+                {
+                    SelectedPiece.GetComponent<piceseScript>().Selected = false;
+                    SelectedPiece = null;
+
+                }
+            }
+
+            if (SelectedPiece != null)
+            {
+                Vector3 touchPoint = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                SelectedPiece.transform.position = new Vector3(touchPoint.x, touchPoint.y, 0);
+            }
+        }
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
