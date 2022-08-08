@@ -58,3 +58,19 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+MixAndJam Project/UIElementsSchema/UIElements.xsd
+MixAndJam Project/UIElementsSchema/Unity.Cloud.Collaborate.Components.ChangeListEntries.xsd
+MixAndJam Project/UIElementsSchema/Unity.Cloud.Collaborate.Components.xsd
+MixAndJam Project/UIElementsSchema/Unity.Cloud.Collaborate.Views.xsd
+MixAndJam Project/UIElementsSchema/Unity.Profiling.Editor.xsd
+MixAndJam Project/UIElementsSchema/Unity.UI.Builder.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.Overlays.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.Search.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.ShortcutManagement.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.U2D.Animation.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.U2D.Layout.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd
+MixAndJam Project/UIElementsSchema/UnityEditor.UIElements.xsd
+MixAndJam Project/UIElementsSchema/UnityEngine.UIElements.xsd

@@ -1,9 +1,16 @@
 using UnityEngine;
 
-public class Shield : Paddle
+public class Shield : MonoBehaviour
 {
     private Vector2 direction;
     private Touch touch;
+    public float speed = 1.5f;
+    private Rigidbody2D _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -17,7 +24,7 @@ public class Shield : Paddle
     private void FixedUpdate()
     {
         if (touch.phase == TouchPhase.Moved) {
-            rigidbody.AddForce(direction * this.speed);
+            _rigidbody.AddForce(direction * this.speed);
         }
     }
 }

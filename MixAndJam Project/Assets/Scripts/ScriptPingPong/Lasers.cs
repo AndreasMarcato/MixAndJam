@@ -3,11 +3,11 @@ using UnityEngine;
 public class Lasers : MonoBehaviour
 {
     public float speed = 100.0f;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -18,6 +18,6 @@ public class Lasers : MonoBehaviour
     public void AddStartingForce()
     {        
         Vector2 direction = Vector2.down;
-        rigidbody.AddForce(direction * this.speed);
+        _rigidbody.AddForce(direction * this.speed);
     }
 }
