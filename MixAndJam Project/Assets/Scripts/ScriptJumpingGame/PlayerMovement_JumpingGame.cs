@@ -17,7 +17,8 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
 
     //--Check if player is on the ground
     private bool isGrounded;
-
+    //--Animator
+    private Animator animator;
 
     //--Double Jump
     private int extraJumps;
@@ -34,6 +35,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         extraJumps = extraJumpValue;
         //-- Get rb
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();    //--Get animator component
     }
 
 
@@ -49,15 +51,15 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         //-- if you touch the screen, player will jump max 2 times
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && extraJumps > 0)
         {
-            Debug.Log("I was herr");
                 //--Then apply the force to Rigidbody to make player jump
                 rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                //--Player presses jump, play jumping animation
+                animator.SetBool("isJumping", true);            
                 //--when you are in the air and jump again you will lose your extra jump
                 extraJumps--;
         }
         else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && extraJumps == 0 && isGrounded == true)
         {
-            Debug.Log("In the other one?");
             //--if we are on the ground and jump
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -79,6 +81,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("isJumping", false);           //--Player is not jumping, so jumping animation doesn't play
         }
 
         //--If player WINS the GAME!!
@@ -100,7 +103,6 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
     //--Winning is now true -> GameController handles the winning screen ->
     public void WinningScreen()
     {
-        Debug.Log("YOU WON");
         gCJumpingGame.WinScene();                        //--Call the function for winning scene
         GameController_JumpingGame.isPaused = true;     //--Game is paused
         gCJumpingGame.pauseGame();

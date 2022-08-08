@@ -9,13 +9,10 @@ public class GameController_JumpingGame : MonoBehaviour
 
     //--Audio
     public AudioSource audioSource;
-
     //--Game Over
     public GameObject gameOverScreen;
-
     //--Pause
     public static bool isPaused;
-
     //--Winning the game
     public GameObject winScreen;
 
