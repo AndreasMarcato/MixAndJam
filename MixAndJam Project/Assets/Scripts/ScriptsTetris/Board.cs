@@ -22,7 +22,7 @@ public class Board : MonoBehaviour
     public Text gameOver = null;
     public Text scoreText = null;
     public int score = 0;
-
+    public Text winCondition = null;
 
 
 
@@ -61,6 +61,8 @@ public class Board : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EnableText();
+        Invoke("DisableText", 4f);
         SpawnPiece();
     }
 
@@ -69,6 +71,20 @@ public class Board : MonoBehaviour
     {
         
     }
+
+
+
+    private void DisableText()
+    {
+        winCondition.gameObject.SetActive(false);
+
+    }
+
+    private void EnableText()
+    {
+        winCondition.gameObject.SetActive(true);
+    }
+
 
 
 
@@ -221,10 +237,10 @@ public class Board : MonoBehaviour
             //scoreText.text = score.ToString();
         }
         score += 50;
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score;
 
 
-        if(score >= 650)
+        if (score >= 400)
         {
             Debug.Log("you win!");
         }
