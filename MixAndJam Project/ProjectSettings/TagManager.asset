@@ -7,6 +7,7 @@ TagManager:
   - Destroy
   - GameOver
   - Ground
+  - FinishLine
   layers:
   - Default
   - TransparentFX

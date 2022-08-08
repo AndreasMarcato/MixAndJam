@@ -80,6 +80,12 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        //--If player WINS the GAME!!
+        if (collision.collider.CompareTag("FinishLineShip"))
+        {
+            WinningScreen();
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -89,5 +95,10 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    public void WinningScreen()
+    {
+        Debug.Log("YOU WON");
     }
 }
