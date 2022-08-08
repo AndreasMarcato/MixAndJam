@@ -70,7 +70,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         if (collision.collider.CompareTag("GameOver"))
         {
             Destroy(this.gameObject);
-            GameController_JumpingGame.isGameOver = true;   //--Show Game Over screen. isGameOver is in GameController_JumpingGame script
+            gCJumpingGame.GameOver();                       //--Call game over function, GameOver is in GameController_JumpingGame script
             GameController_JumpingGame.isPaused = true;     //--Game is paused
             gCJumpingGame.pauseGame();                      //--Call the pause to happen
         }
@@ -82,7 +82,7 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         }
 
         //--If player WINS the GAME!!
-        if (collision.collider.CompareTag("FinishLineShip"))
+        if (collision.collider.CompareTag("FinishLine"))
         {
             WinningScreen();
         }
@@ -97,8 +97,12 @@ public class PlayerMovement_JumpingGame : MonoBehaviour
         }
     }
 
+    //--Winning is now true -> GameController handles the winning screen ->
     public void WinningScreen()
     {
         Debug.Log("YOU WON");
+        gCJumpingGame.WinScene();                        //--Call the function for winning scene
+        GameController_JumpingGame.isPaused = true;     //--Game is paused
+        gCJumpingGame.pauseGame();
     }
 }
