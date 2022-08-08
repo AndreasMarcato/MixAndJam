@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Board : MonoBehaviour
 {
@@ -15,6 +17,16 @@ public class Board : MonoBehaviour
 
     // defining the border of the board:
     public Vector2Int boardSize = new Vector2Int(10, 20);
+
+
+    public Text gameOver = null;
+    public Text scoreText = null;
+    public int score = 0;
+
+
+
+
+
 
     // defining a bounds as a property:
     // to define, we need the position and the size:
@@ -84,11 +96,21 @@ public class Board : MonoBehaviour
     private void GameOver()
     {
         // clearing the whole map:
-        this.tilemap.ClearAllTiles();
+        //this.tilemap.ClearAllTiles();
+        gameOver.gameObject.SetActive(true);
+        StartCoroutine(Reload()); 
 
         // UI gameover menu:
     }
 
+    private IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(2f);
+        //this.tilemap.ClearAllTiles();
+        //score = 0;
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
 
     // set the pieces:
     public void Set(Piece piece)
@@ -195,11 +217,21 @@ public class Board : MonoBehaviour
         {
             Vector3Int position = new Vector3Int(col, row, 0);
             this.tilemap.SetTile(position, null);
+            //score += 50;
+            //scoreText.text = score.ToString();
+        }
+        score += 50;
+        scoreText.text = score.ToString();
+
+
+        if(score >= 650)
+        {
+            Debug.Log("you win!");
         }
 
 
         // after clearing the tile, we make every line above this fall down:
-        while(row < bounds.yMax)
+        while (row < bounds.yMax)
         {
             for (int col = bounds.xMin; col < bounds.xMax; col++)
             {
