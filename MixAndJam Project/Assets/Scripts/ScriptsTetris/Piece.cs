@@ -81,6 +81,10 @@ public class Piece : MonoBehaviour
 
 
 
+
+
+
+
     // handle player input:
     // Update is called once per frame
     void Update()
@@ -226,7 +230,7 @@ public class Piece : MonoBehaviour
 
 
 
-    private void Rotate(int direction)
+    public void Rotate(int direction)
     {
         //storing our current rotation, so if the rotation fails, we can revert back:
         int originalRotation = this.rotationIndex;
