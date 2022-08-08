@@ -39,11 +39,6 @@ public class Piece : MonoBehaviour
 
 
 
-
-
-
-
-
     // spawn position, and the data ew want to use while this piece is active, and a reference to our gameboard:
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
@@ -129,9 +124,22 @@ public class Piece : MonoBehaviour
             Rotate(1);
         }
 
+      
+        /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            coordinates = Input.GetTouch(0).position;
+            if(coordinates.x==0 && coordinates.y==0)
+                Rotate(1);
+      
+            Rotate(1);
+        }
+        */
+        
 
-        // movement direction whenever you press certain letters
-        if (Input.GetKeyDown(KeyCode.A))
+
+
+            // movement direction whenever you press certain letters
+            if (Input.GetKeyDown(KeyCode.A))
         {
             Move(Vector2Int.left);
         }
@@ -343,7 +351,9 @@ public class Piece : MonoBehaviour
     void ProcessSwipe()
     {
         float distance = Vector2.Distance(swipeStart, swipeEnd);
-        if (distance > minimumDistance)
+        if (swipeStart.x == swipeEnd.x)
+            Rotate(1);
+        else if (distance > minimumDistance)
         {
             if (IsVerticalSwipe())
             {
