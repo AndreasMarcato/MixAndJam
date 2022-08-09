@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/07_Tetris.unity
-    guid: 0f4122fa63920e94ea049e4d9794fb24
+    path: Assets/Scenes/00_Main_Menu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/01_GameSelection.unity
+    guid: 4da36d98fc313de40b35a25b514f377f
+  - enabled: 1
+    path: Assets/Scenes/02_JumpingGame.unity
+    guid: 1f1bafb753913f8408518e6ee9eb033c
+  - enabled: 1
+    path: Assets/Scenes/03_PuzzleArtGame.unity
+    guid: 486ceffe69d37ab418d57a7bcf7e503a
+  - enabled: 1
+    path: Assets/Scenes/02_LoadStoryJumpingGame.unity
+    guid: 04e49a9b93425dd40abf05afe1a20366
+  - enabled: 1
+    path: Assets/Scenes/02_2EndJumpingGame.unity
+    guid: 0104712d3510ef5468a3bfa20beb1ea1
+  - enabled: 1
+    path: Assets/Scenes/04_PuzzleGame_Hristiana.unity
+    guid: 6911660dcc4c6f04ea4b862a6713fcbc
   m_configObjects: {}
