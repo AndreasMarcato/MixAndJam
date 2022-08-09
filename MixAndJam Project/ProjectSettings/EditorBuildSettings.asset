@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_EndPuzzleCutScene.unity
     guid: 067f1f4cb71bad04481d47fcb1975b69
+  - enabled: 1
+    path: Assets/Scenes/04_PingPongGame.unity
+    guid: 55fbdd8de61d9764686700c2807e9e51
   m_configObjects: {}

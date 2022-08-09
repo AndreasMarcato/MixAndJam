@@ -2604,7 +2604,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 00_Main_Menu
+          m_StringArgument: 04_PingPongGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1190681832
@@ -5147,7 +5147,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 02_LoadStoryJumpingGame
+          m_StringArgument: 02_JumpingGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2076570406
