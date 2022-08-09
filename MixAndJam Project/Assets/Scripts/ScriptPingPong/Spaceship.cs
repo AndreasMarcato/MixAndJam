@@ -1,12 +1,12 @@
 using UnityEngine;
-using System.Threading;
 
 public class Spaceship : Logic
 {
     void OnTriggerEnter2D()
     {
-        Debug.Log("Spacheship Triggered");
+        //Debug.Log(score);
+        //Debug.Log("Spacheship Triggered");
         ship.GetComponent<Animator>().SetTrigger("Hit");
-        Debug.Log("Hit");
+        //Debug.Log("Hit");
     }
 }
