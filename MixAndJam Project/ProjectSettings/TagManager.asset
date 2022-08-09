@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GameTrigger
-  - JumpingGame
-  - ArtPuzzleGame
-  - MainMenu
+  - Destroy
+  - GameOver
+  - Ground
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
