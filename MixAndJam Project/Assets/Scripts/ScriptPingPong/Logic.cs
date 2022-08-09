@@ -1,25 +1,74 @@
 using UnityEngine;
+using TMPro;
 
 public class Logic : MonoBehaviour
 {
-    protected sbyte health = 3;
-    protected int score;
+    protected sbyte health;
+    protected int score, highScore;
     protected float x_pos;
-    protected GameObject bullet;
-    protected GameObject enemy;
+    protected GameObject bullet, enemy, ship, textScore, textHealth;
 
     public void Awake()
     {
+        DataInit();
+        Rerender();
+    }
+
+    public void DataInit(){
+        score = 0;
+        health = 4;
+        textHealth = GameObject.Find("HealthText");
+        textScore = GameObject.Find("ScoreText");
         bullet = GameObject.Find("Lasers");
         enemy = GameObject.Find("Enemy");
+        ship = GameObject.Find("Spaceship");
+        highScore = PlayerPrefs.GetInt("highscore", 0);
+        Debug.Log("Initialized");
     }
     
-    public void ReSpawn()
+    public void Respawn()
     {
+        Debug.Log("Respawn");
+        Rerender();
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         x_pos = Random.Range(-4, 4);
         bullet.transform.localPosition = new Vector3(0, 12, 0);
         enemy.transform.position = new Vector3(x_pos, 7.5f, 0);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.down * 300);
+    }
+    public void TakeDamage()
+    {
+        health -= 1;
+        Debug.Log("-1 Health");
+        Debug.Log(health);
+        if (health == 0)
+        {
+            Lose();
+            Debug.Log("Lose");
+        }
+        Rerender();
+    }
+    public void Lose()
+    {
+        Restart();
+        PlayerPrefs.SetInt("highscore", score);
+        Debug.Log("New HighScore");
+    }
+    public void Restart()
+    {
+        Debug.Log("Restart");
+        health = 3;
+        Debug.Log("Health 3");
+        score = 0;
+        Debug.Log("Score 0");
+        Respawn();
+    }
+    public void Rerender()
+    {
+        Debug.Log("Rerender");
+        textScore.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        Debug.Log(score + " score rendered");
+        textHealth.GetComponent<TextMeshProUGUI>().text = health.ToString();
+        Debug.Log(health + " health rendered");
     }
 }

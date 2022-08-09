@@ -5,10 +5,8 @@ public class BottomWall : Logic
 
     void OnTriggerEnter2D()
     {
-        ReSpawn();
+        Debug.Log("Bottom Triggered");
         TakeDamage();
-    }
-    public void TakeDamage(){
-        this.health -= 1;
+        Respawn();
     }
 }

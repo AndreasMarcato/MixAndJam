@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TopWall : MonoBehaviour
+public class TopWall : Logic
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Top Triggered");
+        score += 1;
+        Debug.Log("+1 Score");
+        Respawn();
     }
 }
