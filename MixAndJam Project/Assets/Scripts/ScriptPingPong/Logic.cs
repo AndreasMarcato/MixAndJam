@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Logic : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class Logic : MonoBehaviour
         ship = GameObject.Find("Spaceship");
         highScore = PlayerPrefs.GetInt("highscore", 0);
         //Debug.Log("Initialized");
+        textScore.GetComponent<TextMeshProUGUI>().text = score.ToString();
+
+
+        
     }
     
     public void Respawn()
@@ -56,6 +61,10 @@ public class Logic : MonoBehaviour
         Restart();
         PlayerPrefs.SetInt("highscore", score);
         //Debug.Log("New HighScore");
+       
+        //get current scene name an reload it after
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
     public void Restart()
     {
@@ -69,7 +78,7 @@ public class Logic : MonoBehaviour
     public void Rerender()
     {
         //Debug.Log("Rerender");
-        textScore.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        
         //Debug.Log(score + " score rendered");
         textHealth.GetComponent<TextMeshProUGUI>().text = health.ToString();
         //Debug.Log(health + " health rendered");
