@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_PuzzleGame_Hristiana.unity
     guid: 6911660dcc4c6f04ea4b862a6713fcbc
+  - enabled: 1
+    path: Assets/Scenes/07_Tetris.unity
+    guid: 0f4122fa63920e94ea049e4d9794fb24
   m_configObjects: {}

@@ -8,6 +8,11 @@ TagManager:
   - GameOver
   - Ground
   - FinishLine
+  - ArtPuzzleGame
+  - MainMenu
+  - JumpingGame
+  - TetrisGame
+  - PingPongGame
   layers:
   - Default
   - TransparentFX

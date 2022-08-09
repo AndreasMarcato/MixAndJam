@@ -8,6 +8,8 @@ public class SceneSelection_Hub : MonoBehaviour
     public GameObject showMainMenu;         //--MainMenu
     public GameObject showJumpingGameStart; //--Object where the UI is for starting JumpingGame
     public GameObject showArtCardGameStart; //--ArtCardGame
+    public GameObject showPingPongGameStart;
+    public GameObject showTetrisGameStart;
 
  
 
@@ -30,6 +32,19 @@ public class SceneSelection_Hub : MonoBehaviour
         {
             showArtCardGameStart.SetActive(true);
         }
+
+        //-- Ping Pong Game
+        if (CompareTag("PingPongGame"))
+        {
+            showPingPongGameStart.SetActive(true);
+        }
+
+        //-- Tetris Game
+        if (CompareTag("TetrisGame"))
+        {
+            showTetrisGameStart.SetActive(true);
+        }
+
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -38,6 +53,8 @@ public class SceneSelection_Hub : MonoBehaviour
         showMainMenu.SetActive(false);
         showJumpingGameStart.SetActive(false);
         showArtCardGameStart.SetActive(false);
+        showPingPongGameStart.SetActive(false);
+        showTetrisGameStart.SetActive(false);
     }
 
 }
