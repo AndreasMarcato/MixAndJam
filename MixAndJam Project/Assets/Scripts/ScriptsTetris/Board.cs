@@ -23,7 +23,7 @@ public class Board : MonoBehaviour
     public Text scoreText = null;
     public int score = 0;
     public Text winCondition = null;
-
+    public Button nextButton;
 
 
 
@@ -240,10 +240,12 @@ public class Board : MonoBehaviour
         scoreText.text = "Score: " + score;
 
 
-        if (score >= 400)
+        if (score >= 400)                                         //--When you win the game!!------
         {
             Debug.Log("you win!");
+            nextButton.gameObject.SetActive(true);  //--Show next button
         }
+
 
 
         // after clearing the tile, we make every line above this fall down:
@@ -264,6 +266,10 @@ public class Board : MonoBehaviour
 
     }
 
-
+    //--Load next scene
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 
 }
