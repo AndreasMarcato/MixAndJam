@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/07_Tetris.unity
     guid: 0f4122fa63920e94ea049e4d9794fb24
+  - enabled: 1
+    path: Assets/Scenes/04_EndPuzzleCutScene.unity
+    guid: 067f1f4cb71bad04481d47fcb1975b69
   m_configObjects: {}

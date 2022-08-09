@@ -39,8 +39,8 @@ public class Switch : MonoBehaviour
         
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].gameObject.SetActive(false);
-            images[index].gameObject.SetActive(true);
+            images[i].gameObject.SetActive(false);       //--Last image is now hidden
+            images[index].gameObject.SetActive(true);   //--Show next image
         }
     }
 
