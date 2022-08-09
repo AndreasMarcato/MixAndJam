@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/03_PuzzleArtGame.unity
     guid: 486ceffe69d37ab418d57a7bcf7e503a
+  - enabled: 1
+    path: Assets/Scenes/02_LoadStoryJumpingGame.unity
+    guid: 04e49a9b93425dd40abf05afe1a20366
   m_configObjects: {}
