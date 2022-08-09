@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DragAndDropPuzzleGame : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DragAndDropPuzzleGame : MonoBehaviour
     //public GameObject inCorrectPlace;
     public int PlacedPieces = 0;
 
+    public Button continueButton;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +109,7 @@ public class DragAndDropPuzzleGame : MonoBehaviour
         {
             //EndMenu.SetActive(true);
             Debug.Log("you win, CAT");
+            continueButton.gameObject.SetActive(true);      //--Set Continue button active
         }
 
 
@@ -120,6 +123,12 @@ public class DragAndDropPuzzleGame : MonoBehaviour
     {
        // winning
         SceneManager.LoadScene("Game");
+    }
+
+    //--This whole thing is needed to change scenes
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);          //--Used to change scene
     }
 
 }
