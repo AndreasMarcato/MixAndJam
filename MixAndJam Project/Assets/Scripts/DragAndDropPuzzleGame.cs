@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class DragAndDropPuzzleGame : MonoBehaviour
 {
     public GameObject SelectedPiece;
+    public GameObject EndMenu;
+    //public GameObject inCorrectPlace;
+    public int PlacedPieces = 0;
 
 
     // Start is called before the first frame update
@@ -40,7 +44,6 @@ public class DragAndDropPuzzleGame : MonoBehaviour
                 {
                     SelectedPiece.GetComponent<PiecesScriptPuzzleGame>().Selected = false;
                     SelectedPiece = null;
-
                 }
             }
 
@@ -49,6 +52,13 @@ public class DragAndDropPuzzleGame : MonoBehaviour
                 Vector3 touchPoint = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                 SelectedPiece.transform.position = new Vector3(touchPoint.x, touchPoint.y, 0);
             }
+
+
+            if (PlacedPieces == 36)
+            {
+                EndMenu.SetActive(true);
+            }
+
         }
 
 
@@ -78,7 +88,6 @@ public class DragAndDropPuzzleGame : MonoBehaviour
             {
                 SelectedPiece.GetComponent<PiecesScriptPuzzleGame>().Selected = false;
                 SelectedPiece = null;
-
             }
         }
 
@@ -91,8 +100,26 @@ public class DragAndDropPuzzleGame : MonoBehaviour
 
 
 
+
+
+
+        if (PlacedPieces == 15)
+        {
+            //EndMenu.SetActive(true);
+            Debug.Log("you win, CAT");
+        }
+
+
+
+
+
+
     }
 
-
+    public void NextLevel()
+    {
+       // winning
+        SceneManager.LoadScene("Game");
+    }
 
 }

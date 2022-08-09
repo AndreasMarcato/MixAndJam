@@ -24,8 +24,12 @@ public class PiecesScriptPuzzleGame : MonoBehaviour
         {
             if (!Selected)
             {
-                transform.position = RightPosition;
-                InRightPosition = true;
+                if (InRightPosition == false)
+                {
+                    transform.position = RightPosition;
+                    InRightPosition = true;
+                    Camera.main.GetComponent<DragAndDropPuzzleGame>().PlacedPieces++;
+                }
             }
 
         }
@@ -35,7 +39,6 @@ public class PiecesScriptPuzzleGame : MonoBehaviour
 
     private void CreatingPieces()
     {
-
         RightPosition = transform.position;
         transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-4f, -3.5f));
     }

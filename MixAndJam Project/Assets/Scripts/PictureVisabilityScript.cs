@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PictureVisabilityScript : MonoBehaviour
 {
     //public Text startText = null;
+    public bool winTextActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,10 @@ public class PictureVisabilityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (winTextActive)
+        {
+            // display text
+        }
     }
 
 
