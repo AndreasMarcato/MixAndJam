@@ -26,6 +26,7 @@ public class Lasers : MonoBehaviour
     }
     void OnCollisionEnter2D()
     {
+        GetComponent<SpriteRenderer>().flipX = (GetComponent<SpriteRenderer>().flipX == false) ? true : false;
         bounce.GetComponent<AudioSource>().Play(0);
     }
 }

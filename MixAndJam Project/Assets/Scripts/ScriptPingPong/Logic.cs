@@ -32,6 +32,7 @@ public class Logic : MonoBehaviour
     public void Respawn()
     {
         //Debug.Log("Respawn");
+        bullet.GetComponent<SpriteRenderer>().flipX = false;
         Rerender();
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         x_pos = Random.Range(-4, 4);
