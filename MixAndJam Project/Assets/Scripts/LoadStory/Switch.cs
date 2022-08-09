@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Switch : MonoBehaviour
 {
+    //--This script is used every time there is a Cut Scene and story is being told
     public GameObject[] images;
     int index;
     public Button startButton;  //--For starting button
@@ -19,7 +20,7 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (index > images.Length)      //once we reach the end of all images, you can't click further
+        if (index >= images.Length)      //once we reach the end of all images, you can't click further
         {
             index = images.Length;
             startButton.gameObject.SetActive(true);     //--Start button will appear
@@ -28,7 +29,7 @@ public class Switch : MonoBehaviour
 
         if (index == 0)
         {
-            images[0].gameObject.SetActive(true);
+            images[0].gameObject.SetActive(true);       //--At the start we set the first image active
         }
     }
 
