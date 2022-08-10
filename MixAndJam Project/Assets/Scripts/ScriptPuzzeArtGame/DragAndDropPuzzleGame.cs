@@ -14,6 +14,12 @@ public class DragAndDropPuzzleGame : MonoBehaviour
 
     public Button continueButton;
 
+
+    private void Awake()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;                //--Force screen orientation
+    }
+
     // Start is called before the first frame update
     void Start()
     {

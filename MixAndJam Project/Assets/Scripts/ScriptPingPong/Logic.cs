@@ -14,6 +14,7 @@ public class Logic : MonoBehaviour
     }
     public void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;                //--Force Screen orientation important
         DataInit();
         Rerender();
     }

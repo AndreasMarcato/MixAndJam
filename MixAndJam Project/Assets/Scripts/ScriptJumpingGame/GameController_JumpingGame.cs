@@ -19,6 +19,7 @@ public class GameController_JumpingGame : MonoBehaviour
 
     private void Awake()
     {
+        Screen.orientation = ScreenOrientation.LandscapeRight;                  //--Force screen oriantation
         isPaused = false;           //--Game is no longer paused
         pauseGame();                //--Call the pauseGame to continue      Remember, pause can be used to hold the game before starting if needed
         audioSource.Play();         //--Play the song

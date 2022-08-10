@@ -47,6 +47,7 @@ public class Board : MonoBehaviour
     // Awake will be called automaticaly when your component is first initiallized:
     private void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;                //--Force screen orientation
         this.tilemap = GetComponentInChildren<Tilemap>();
         this.activePiece = GetComponentInChildren<Piece>();
         // loop through our list of data and initialize our list:
