@@ -28,6 +28,8 @@ public class PiecesScriptPuzzleGame : MonoBehaviour
                 {
                     transform.position = RightPosition;
                     InRightPosition = true;
+                    if(InRightPosition == true)
+                    
                     Camera.main.GetComponent<DragAndDropPuzzleGame>().PlacedPieces++;
                 }
             }
